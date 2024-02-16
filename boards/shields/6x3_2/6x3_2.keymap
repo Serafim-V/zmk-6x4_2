@@ -1,0 +1,53 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define SECOND  1
+#define NUMPAD  2
+#define MOVE    3
+
+#define TAPPING_TERM_MS 200
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+    &kp TAB     &kp Q    &kp W    &kp E     &kp R       &kp T              &kp Y       &kp U       &kp I       &kp O     &kp P      &kp BSLH
+    &kp LSHIFT  &kp A    &kp S    &kp D     &kp F       &kp G              &kp H       &kp J       &kp K       &kp L     &kp SEMI   &kp SQT
+    &sl SECOND  &kp Z    &kp X    &kp C     &kp V       &kp B              &kp N       &kp M       &kp COMMA   &kp DOT   &kp FSLH   &sl NUMPAD
+                                            &mt LGUI ESC    &lt MOVE SPACE   &mt LCTRL BSPC    &mt LALT ENTER   
+            >;
+        };
+
+        second_layer {
+            bindings = <
+    &trans   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT     &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR &kp BSPC
+    &trans   &trans   &trans &trans   &trans   &trans        &kp EQUAL &kp LBKT  &kp RBKT  &kp MINUS &kp BSLH &kp GRAVE
+    &trans   &trans   &trans &trans   &trans   &trans        &kp PLUS  &kp LBRC  &kp RBRC  &kp UNDER &kp PIPE &kp TILDE    
+                                    &trans   &trans        &trans    &trans  
+            >;
+        };
+
+        third_layer {
+            bindings = <
+    &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans    
+    &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans    
+    &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans    
+                                            &trans    &trans        &trans    &trans  
+            >;
+        };
+
+        move_layer {
+            bindings = <
+    &trans    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6    &kp N7    &kp N8  &kp N9     &kp N0  &kp BSPC
+    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
+    &trans  &trans       &trans       &trans       &trans       &trans         &trans    &trans    &trans  &trans     &trans  &kp F12   
+                                                     &trans       &trans         &trans    &trans  
+            >;
+
+        };
+    };
+};

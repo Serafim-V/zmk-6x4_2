@@ -1,0 +1,157 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+#define DEFAULT 0
+#define SECOND  1
+#define NUMPAD  2
+#define MOVE    3
+#define TAPPING_TERM_MS 250
+
+/ {
+    behaviors {
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            bindings = <&kp J>, <&kp ESCAPE>;
+        };
+        td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            bindings = <&mt LGUI SPACE>, <&lt MOVE SPACE>;
+        };
+        td2: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            bindings = <&sl SECOND>, <&mo NUMPAD>;
+        };
+        tdRT: tap_dance_RT {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp R>, <&kp T>;
+        };
+        tdFG: tap_dance_FG {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&lt MOVE F>, <&kp G>;
+        };
+        tdVB: tap_dance_VB {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp V>, <&kp B>;
+        };
+        tdU_Y: tap_dance_UY {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp U>, <&kp Y>;
+        };
+        tdJ_H: tap_dance_JH {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp J>, <&kp H>;
+        };
+        tdM_N: tap_dance_MN {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp M>, <&kp N>;
+        };
+        tdQ_ESK: tap_dance_QESC {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp Q>, <&kp ESC>;
+        };
+        tdI_MINUS: tap_dance_IMINUS {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp I>, <&kp MINUS>;
+        };
+        tdK_EQUAL: tap_dance_KEQUAL {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp K>, <&kp EQUAL>;
+        };
+        tdCOMMA_STAR: tap_dance_COMMASTART {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp COMMA>, <&kp STAR>;
+        };
+        tdO_LBKT: tap_dance_13 {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp O>, <&kp LBKT>;
+        };
+        tdL_GRAVE: tap_dance_14 {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp L>, <&kp GRAVE>;
+        };
+        tdP_RBKT: tap_dance_15 {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp P>, <&kp RBKT>;
+        };
+        tdSEMI_BSLH: tap_dance_16 {
+            #binding-cells = <0>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&kp SEMI>, <&kp BSLH>;
+        };
+
+
+    };
+    keymap {
+        compatible = "zmk,keymap";
+
+        DEFAULT {
+
+            bindings = <
+    &tdQ_ESK  &kp W    &kp E     &tdRT                    &tdU_Y     &tdI_MINUS     &tdO_LBKT   &tdP_RBKT   
+    &kp A     &kp S    &kp D     &tdFG                    &tdJ_H     &tdK_EQUAL     &tdL_GRAVE  &tdSEMI_BSLH
+    &kp Z     &kp X    &kp C     &tdVB                    &tdM_N     &tdCOMMA_STAR  &kp DOT     &kp FSLH
+                                &mt LGUI ENTER   &mt LSHIFT SPACE   &mt LALT BSPC    &mt LCTRL TAB
+            >;
+        };
+        SECOND {
+
+            bindings = <
+    &trans    &trans    &trans     &kp T                            &kp Y     &kp MINUS    &kp LBKT   &kp RBKT    
+    &kp TAB   &trans    &trans     &kp G                            &kp H     &kp EQUAL    &kp GRAVE  &kp BSLH
+    &trans    &trans    &trans     &kp B                            &kp N     &kp STAR     &trans     &kp ENTER
+                                   &trans   &trans         &trans   &trans
+            >;
+        };
+        NUMPAD {
+
+            bindings = <
+    &kp F9    &kp F10    &kp F11     &kp F12                          &kp N7    &kp N8  &kp N9  &kp N9    
+    &kp F5    &kp F6     &kp F7      &kp F8                           &kp N4    &kp N5  &kp N6  &kp N6
+    &kp F1    &kp F2     &kp F3      &kp F4                           &kp N1    &kp N2  &kp N3  &kp N3
+                                   &trans   &trans         &trans   &trans
+            >;
+        };
+        MOVE {
+
+            bindings = <
+    &kp Q    &kp W    &kp E     &kp C_VOL_UP                                  &kp HOME     &kp UP     &kp END     &kp P    
+    &kp A    &kp S    &kp D     &kp C_VOL_DN                                  &kp LEFT     &kp DOWN     &kp RIGHT     &kp SEMI
+    &kp Z    &kp X    &kp C     &kp C_MUTE                                  &kp M     &kp COMMA &kp DOT   &kp FSLH
+                                &trans  &trans        &trans   &trans
+            >;
+        };
+    };
+};

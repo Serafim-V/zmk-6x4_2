@@ -1,0 +1,62 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build 4x3_2_left",
+      "type": "shell",
+      "command": "cd ~/Projects/zmk/app && west build -d build/4x3_2/left -b nice_nano_v2 -- -DSHIELD=4x3_2_left -DZMK_EXTRA_MODULES=/Users/ivan.vorotilin/Projects/zmk-6x4_2"
+    },
+    {
+      "label": "Build 4x3_2_right",
+      "type": "shell",
+      "command": "cd ~/Projects/zmk/app && west build -d build/4x3_2/right -b nice_nano_v2 -- -DSHIELD=4x3_2_right -DZMK_EXTRA_MODULES=/Users/ivan.vorotilin/Projects/zmk-6x4_2"
+    },
+    {
+      "label": "Build 4x3_2",
+      "type": "shell",
+      "command": "cd ~/Projects/zmk/app && west build -p -d build/4x3_2/left -b nice_nano_v2 -- -DSHIELD=4x3_2_left -DZMK_EXTRA_MODULES=/Users/ivan.vorotilin/Projects/zmk-6x4_2"
+    },
+    {
+      "label": "Flash 4x3_2_left",
+      "type": "shell",
+      "command": "cp /Users/ivan.vorotilin/Projects/zmk/app/build/4x3_2/left/zephyr/zmk.uf2 /Volumes/NICENANO"
+    },
+    {
+      "label": "Flash 4x3_2_right",
+      "type": "shell",
+      "command": "cp /Users/ivan.vorotilin/Projects/zmk/app/build/4x3_2/right/zephyr/zmk.uf2 /Volumes/NICENANO"
+    },
+    {
+      "label": "Build 6x3_2_left",
+      "type": "shell",
+      "command": "cd ~/Projects/zmk/app && west build -d build/6x3_2/left -b nice_nano_v2 -- -DSHIELD=6x3_2_left -DZMK_EXTRA_MODULES=/Users/ivan.vorotilin/Projects/zmk-6x4_2"
+    },
+    {
+      "label": "Build 6x3_2_right",
+      "type": "shell",
+      "command": "cd ~/Projects/zmk/app && west build -d build/6x3_2/right -b nice_nano_v2 -- -DSHIELD=6x3_2_right -DZMK_EXTRA_MODULES=/Users/ivan.vorotilin/Projects/zmk-6x4_2"
+    },
+    {
+      "label": "Build 6x3_2",
+      "type": "shell",
+      "command": "cd ~/Projects/zmk/app && west build -p -d build/6x3_2/left -b nice_nano_v2 -- -DSHIELD=6x3_2_left -DZMK_EXTRA_MODULES=/Users/ivan.vorotilin/Projects/zmk-6x4_2"
+    },
+    {
+      "label": "Flash 6x3_2_left",
+      "type": "shell",
+      "command": "cp /Users/ivan.vorotilin/Projects/zmk/app/build/6x3_2/left/zephyr/zmk.uf2 /Volumes/NICENANO"
+    },
+    {
+      "label": "Flash 6x3_2_right",
+      "type": "shell",
+      "command": "cp /Users/ivan.vorotilin/Projects/zmk/app/build/6x3_2/right/zephyr/zmk.uf2 /Volumes/NICENANO"
+    },
+    {
+      "label": "Reset board",
+      "type": "shell",
+      "command": "cp /Users/ivan.vorotilin/Projects/zmk-6x4_2/settings_reset-nice_nano_v2-zmk.uf2 /Volumes/NICENANO"
+    }
+  ]
+}

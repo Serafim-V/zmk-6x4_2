@@ -1,0 +1,5 @@
+config SHIELD_6x3_2_LEFT
+    def_bool $(shields_list_contains,6x3_2_left)
+
+config SHIELD_6x3_2_RIGHT
+    def_bool $(shields_list_contains,6x3_2_right)
